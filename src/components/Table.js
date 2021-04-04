@@ -41,7 +41,7 @@ export default function TableTamplate() {
       .then((response) => response.json())
       .then((json) => {
         setdata(json);
-        // console.log(json);
+        console.log(json);
       });
   }, []);
 
