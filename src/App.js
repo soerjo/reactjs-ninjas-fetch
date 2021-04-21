@@ -1,8 +1,9 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Table from "./components/Table";
 import Navbar from "./components/Navbar";
 import NewData from "./components/NewData";
 import About from "./components/About";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Detail from "./components/Detail";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
+          <Route path="/detail/:id">
+            <Detail />
+          </Route>
           <Route exact path="/">
             <Table />
           </Route>

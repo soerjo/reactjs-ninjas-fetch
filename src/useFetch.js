@@ -28,7 +28,7 @@ function useFetch(url) {
             setErr(err.message);
           }
         });
-    }, 2000);
+    }, 1000);
 
     return () => abortCon.abort();
   }, [url]);

@@ -4,30 +4,45 @@
             "name": "Soerjo",
             "email": "soerjo@gmail.com",
             "phone": "087808925838",
+            "tanggalLahir": "10-05-1996",
+            "tempatTinggal": "Jakarta",
+            "motoHidup":"Menjadi dewasa dan serupa dengan Kristus",
             "id":1
         },
         {
             "name": "Hastomo",
             "email": "tomo@gmail.com",
             "phone": "087808925838",
+            "tanggalLahir": "10-10-1997",
+            "tempatTinggal": "Jakarta",
+            "motoHidup":"Apapun juga yang kuperbuat, kuperbuat seperti untuk Tuhan dan bukan untuk manusia",
             "id":2
 
         },        {
             "name": "Suryo Hastomo",
             "email": "suryo@gmail.com",
             "phone": "087808925838",
+            "tanggalLahir": "11-11-1996",
+            "tempatTinggal": "Jakarta",
+            "motoHidup":"Karena kita ini ciptaan Allah diciptakan dalam Kristus Yesus untuk melakukan pekerjaan baik sebelumnya. Ia mau agak kita hidup didalamnya",
             "id":3
 
         },        {
             "name": "Hastomo Tomo",
             "email": "hastomo@gmail.com",
             "phone": "087808925838",
+            "tanggalLahir": "10-03-1996",
+            "tempatTinggal": "Tangerang",
+            "motoHidup":"Eksperiment itu adalah hal yang terus kita coba dan lakukan dengan itu kita akan dapat banyak pengetahuan dan pengalaman yang membuat kita semakin tau banyak hal",
             "id":4
 
         },        {
             "name": "Ryo Moto",
             "email": "ryomoto@gmail.com",
             "phone": "087808925838",
+            "tanggalLahir": "10-05-1995",
+            "tempatTinggal": "Tangerang Selatan",
+            "motoHidup":"Tak ada yang tidak bisa di dunia ini, karena manusia memiliki satu kemampuan yang bahakan dapat mengubahkan dunia",
             "id":5
 
         }
