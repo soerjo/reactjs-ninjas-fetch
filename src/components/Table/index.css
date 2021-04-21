@@ -1,0 +1,11 @@
+.table {
+  width: 80%;
+  margin: auto;
+  margin-top: 3rem;
+}
+
+.circular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

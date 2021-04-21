@@ -1,12 +1,18 @@
-import { useState, useEffect } from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+import { withStyles } from "@material-ui/core/styles";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  CircularProgress,
+} from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
+import "./index.css";
+import useFetch from "../../useFetch";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -20,43 +26,32 @@ const StyledTableCell = withStyles((theme) => ({
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
-    "&:nth-of-type(odd)": {
+    "&:hover": {
       backgroundColor: theme.palette.action.hover,
     },
   },
 }))(TableRow);
 
 export default function TableTamplate() {
-  const [data, setdata] = useState("");
-
-  const classes = makeStyles({
-    table: {
-      minWidth: 700,
-    },
-  });
-
-  useEffect(() => {
-    // console.log("useEffect work!");
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((json) => {
-        setdata(json);
-        console.log(json);
-      });
-  }, []);
+  const { data, loading, err } = useFetch("http://localhost:5000/peoples");
 
   return (
-    <div>
-      {!data && <p>Loading ...</p>}
+    <div className="table">
+      {loading && (
+        <div className="circular">
+          <CircularProgress />
+        </div>
+      )}
+      {err && <h4>{err}</h4>}
       {data && (
         <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="customized table">
+          <Table>
             <TableHead>
               <TableRow>
                 <StyledTableCell>Name</StyledTableCell>
                 <StyledTableCell>Email</StyledTableCell>
                 <StyledTableCell>Phone Number</StyledTableCell>
-                <StyledTableCell>Website</StyledTableCell>
+                <StyledTableCell>Action</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -65,7 +60,14 @@ export default function TableTamplate() {
                   <TableCell>{person.name}</TableCell>
                   <TableCell>{person.email}</TableCell>
                   <TableCell>{person.phone}</TableCell>
-                  <TableCell>{person.website}</TableCell>
+                  <TableCell>
+                    <button>
+                      <EditIcon fontSize="small" />
+                    </button>
+                    <button>
+                      <DeleteIcon fontSize="small" />
+                    </button>
+                  </TableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
