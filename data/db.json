@@ -8,6 +8,24 @@
       "tempat": "Jakarta",
       "moto": "jakarta itu tempat yang sulit tapi bersama Yesus lu bisa melakukan segala sesuatu wahai bujank",
       "id": 1
+    },
+    {
+      "name": "nomnom",
+      "email": "nomnom@gmail.com",
+      "phone": "0812878789384",
+      "tanggal": "10-96-1995",
+      "tempat": "Jakarta",
+      "moto": "Memberi yang terbaik dan melakukan semua itu untuk Tuhan",
+      "id": 2
+    },
+    {
+      "name": "Soerjo Hasto",
+      "email": "ryohastomo@gmail.com",
+      "phone": "081289785656",
+      "tanggal": "10-05-1999",
+      "tempat": "Jakarta",
+      "moto": "Melakukan yang terbaik",
+      "id": 3
     }
   ]
 }
