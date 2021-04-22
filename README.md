@@ -1,5 +1,7 @@
 # Project Crud JsonServer
 
+Membuat project crud dengan meteri dari the Net Ninja :
+
 ## yang dilakukan:
 
 - melakukan CRUD
