@@ -1,6 +1,6 @@
 # Project Crud JsonServer
 
-Membuat project crud dengan meteri dari the Net Ninja :
+Membuat project crud dengan meteri dari the Net Ninja : https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg
 
 ## yang dilakukan:
 
@@ -11,3 +11,4 @@ Membuat project crud dengan meteri dari the Net Ninja :
 - menggunakan React-router-dom
 - melakukan ridirect saat membuat newData
 - melakukan redirect untuk menampilkan detail data lengkap
+- menangani pageNotFound
