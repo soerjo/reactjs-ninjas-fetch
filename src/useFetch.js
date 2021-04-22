@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-function useFetch(url) {
+function useFetch(url, triger) {
   const [data, setdata] = useState(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState("");
+  console.log("isi loading di dalam fetch", loading);
 
   useEffect(() => {
     const abortCon = new AbortController();
@@ -18,6 +19,7 @@ function useFetch(url) {
         })
         .then((datajson) => {
           setLoading(false);
+          // console.log("dari fetch loading is: ", loading);
           setdata(datajson);
         })
         .catch((err) => {
@@ -31,7 +33,7 @@ function useFetch(url) {
     }, 1000);
 
     return () => abortCon.abort();
-  }, [url]);
+  }, [url, triger]);
 
   return { data, loading, err };
 }

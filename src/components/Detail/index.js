@@ -22,12 +22,12 @@ function Detail() {
       {data && (
         <div className="isiDetail">
           <h1>{data.name} </h1>
-          <p>{data.tanggalLahir} </p>
+          <p>{data.tanggal} </p>
           <hr></hr>
-          <p>Phone number: {data.phone}</p>
+          <p>Phone: {data.phone}</p>
           <p>Email: {data.email}</p>
-          <p>Tempat tinggal: {data.tempatTinggal}</p>
-          <p>Moto: "{data.motoHidup}"</p>
+          <p>Place: {data.tempat}</p>
+          <p>Moto: "{data.moto}"</p>
         </div>
       )}
     </div>

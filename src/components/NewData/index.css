@@ -4,3 +4,43 @@
   margin: auto;
   margin-top: 3rem;
 }
+
+.form {
+  /* background-color: teal; */
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 1rem;
+}
+
+.form label {
+  /* background-color: brown; */
+  text-align: left;
+  display: block;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1 solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.form button {
+  border-radius: 5px;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 12px 0px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ddd;
+  background-color: teal;
+  border: none;
+  cursor: pointer;
+}
+
+.form button:hover {
+  box-shadow: 0 2px 5px 1px rgba(156, 173, 171, 0.5);
+}

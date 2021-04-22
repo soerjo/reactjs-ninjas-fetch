@@ -4,7 +4,7 @@ import "./index.css";
 function About() {
   return (
     <div className="about">
-      <h3>Halaman nya si About</h3>
+      <h2>Halaman nya si About</h2>
       <p>jadi disini isi nya tentang conten si about</p>
     </div>
   );

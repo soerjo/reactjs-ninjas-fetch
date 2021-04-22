@@ -13,8 +13,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import "./index.css";
 import useFetch from "../../useFetch";
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -31,17 +31,34 @@ const StyledTableRow = withStyles((theme) => ({
     "&:hover": {
       backgroundColor: theme.palette.action.hover,
     },
-    cursor: "default",
   },
 }))(TableRow);
 
 export default function TableTamplate() {
-  const { data, loading, err } = useFetch("http://localhost:5000/peoples");
-  const [benar, setBenar] = useState(true);
+  const [render, setrender] = useState(false);
+  const { data, loading, err } = useFetch(
+    "http://localhost:5000/peoples",
+    render
+  );
+
   const history = useHistory();
+
+  const handleDelete = (id) => {
+    fetch("http://localhost:5000/peoples/" + id, {
+      method: "DELETE",
+    })
+      .then(() => {
+        console.log("has been deleted");
+        setrender(!render);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
   return (
     <div className="table">
+      {console.log("log dari render:", render)}
       {loading && (
         <div className="circular">
           <CircularProgress />
@@ -61,27 +78,20 @@ export default function TableTamplate() {
             </TableHead>
             <TableBody>
               {data.map((person) => (
-                <StyledTableRow
-                  key={person.id}
-                  onClick={() => benar && history.push(`/detail/${person.id}`)}
-                  style={{ textDecoration: "none" }}
-                >
-                  <TableCell>{person.name}</TableCell>
+                <StyledTableRow key={person.id}>
+                  <TableCell
+                    style={{ cursor: "pointer" }}
+                    onClick={() => history.push(`/detail/${person.id}`)}
+                  >
+                    {person.name}
+                  </TableCell>
                   <TableCell>{person.email}</TableCell>
                   <TableCell>{person.phone}</TableCell>
                   <TableCell>
-                    <button
-                      onMouseEnter={() => setBenar(false)}
-                      onMouseLeave={() => setBenar(true)}
-                      onClick={() => history.push(`/create`)}
-                    >
+                    <button>
                       <EditIcon fontSize="small" />
                     </button>
-                    <button
-                      onMouseEnter={() => setBenar(false)}
-                      onMouseLeave={() => setBenar(true)}
-                      onClick={() => history.push(`/create`)}
-                    >
+                    <button onClick={() => handleDelete(person.id)}>
                       <DeleteIcon fontSize="small" />
                     </button>
                   </TableCell>
