@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import NewData from "./components/NewData";
 import About from "./components/About";
 import Detail from "./components/Detail";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route exact path="/create">
             <NewData />
+          </Route>
+          <Route exact path="*">
+            <PageNotFound />
           </Route>
         </Switch>
       </div>
