@@ -1,4 +1,3 @@
-import { withStyles } from "@material-ui/core/styles";
 import {
   Table,
   TableBody,
@@ -9,12 +8,13 @@ import {
   Paper,
   CircularProgress,
 } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import "./index.css";
-import useFetch from "../../useFetch";
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
+import "./index.css";
+import Edit from "../Edit";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -35,11 +35,39 @@ const StyledTableRow = withStyles((theme) => ({
 }))(TableRow);
 
 export default function TableTamplate() {
-  const [render, setrender] = useState(false);
-  const { data, loading, err } = useFetch(
-    "http://localhost:5000/peoples",
-    render
-  );
+  const [edit, setEdit] = useState(false);
+  const [data, setdata] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [dataEdit, setDataEdit] = useState();
+  const [err, setErr] = useState("");
+
+  useEffect(() => {
+    const abortCon = new AbortController();
+
+    setTimeout(() => {
+      fetch("http://localhost:5000/peoples", { signal: abortCon.signal })
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("could not fetch the data for that resource!");
+          }
+          return res.json();
+        })
+        .then((datajson) => {
+          setLoading(false);
+          // console.log("dari fetch loading is: ", loading);
+          setdata(datajson);
+        })
+        .catch((err) => {
+          if (err.name === "AbortError") {
+            console.log("fetch aborted");
+          } else {
+            setLoading(false);
+            setErr(err.message);
+          }
+        });
+    }, 1000);
+    return () => abortCon.abort();
+  }, [loading]);
 
   const history = useHistory();
 
@@ -49,16 +77,21 @@ export default function TableTamplate() {
     })
       .then(() => {
         console.log("has been deleted");
-        setrender(!render);
+        setdata();
+        setLoading(true);
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
 
+  const handleEdit = (data) => {
+    setEdit(true);
+    setDataEdit(data);
+  };
+
   return (
     <div className="table">
-      {console.log("log dari render:", render)}
       {loading && (
         <div className="circular">
           <CircularProgress />
@@ -88,7 +121,7 @@ export default function TableTamplate() {
                   <TableCell>{person.email}</TableCell>
                   <TableCell>{person.phone}</TableCell>
                   <TableCell>
-                    <button>
+                    <button onClick={() => handleEdit(person)}>
                       <EditIcon fontSize="small" />
                     </button>
                     <button onClick={() => handleDelete(person.id)}>
@@ -100,6 +133,18 @@ export default function TableTamplate() {
             </TableBody>
           </Table>
         </TableContainer>
+      )}
+      {data === false && loading === false && (
+        <p className="dataKosong"> Datanya kosong ....</p>
+      )}
+      {edit && (
+        <Edit
+          person={dataEdit}
+          isOpen={edit}
+          setupOpen={setEdit}
+          setLoading={setLoading}
+          setData={setdata}
+        />
       )}
     </div>
   );

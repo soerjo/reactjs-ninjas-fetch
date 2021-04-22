@@ -1,40 +1,13 @@
 {
   "peoples": [
     {
-      "name": "Soerjo",
-      "email": "soerjo@gmail.com",
-      "phone": "087808925838",
-      "tanggal": "10-05-2000",
+      "name": "bapak bapak",
+      "email": "ryohastomo@gmail.com",
+      "phone": "087808295838",
+      "tanggal": "10-05-1996",
       "tempat": "Jakarta",
-      "moto": "Jangan mempermainkan hidup lu\nkita harus yakin wahai bujank",
-      "id": 8
-    },
-    {
-      "name": "Hastomo",
-      "email": "tomo@gmail.com",
-      "phone": "087808925838",
-      "tanggal": "10-05-2000",
-      "tempat": "Jakarta",
-      "moto": "Jangan mempermainkan hidup lu\nkita harus yakin wahai bujank",
-      "id": 2
-    },
-    {
-      "name": "Suryo Hastomo",
-      "email": "suryo@gmail.com",
-      "phone": "087808925838",
-      "tanggal": "10-05-2000",
-      "tempat": "Jakarta",
-      "moto": "Jangan mempermainkan hidup lu\nkita harus yakin wahai bujank",
-      "id": 3
-    },
-    {
-      "name": "Hastomo Tomo",
-      "email": "hastomo@gmail.com",
-      "phone": "087808925838",
-      "tanggal": "10-05-2000",
-      "tempat": "Jakarta",
-      "moto": "Jangan mempermainkan hidup lu\nkita harus yakin wahai bujank",
-      "id": 4
+      "moto": "jakarta itu tempat yang sulit tapi bersama Yesus lu bisa melakukan segala sesuatu wahai bujank",
+      "id": 1
     }
   ]
 }

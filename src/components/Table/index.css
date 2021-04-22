@@ -9,3 +9,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.dataKosong {
+  /* background-color: burlywood; */
+  border: 1px solid #333;
+  width: 99%;
+  margin: auto;
+  text-align: center;
+}
